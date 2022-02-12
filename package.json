@@ -1,53 +1,25 @@
 {
-  "name": "rescripts",
+  "name": "@rescripts/cli",
+  "version": "0.0.16",
+  "bin": {
+    "rescripts": "./bin/rescripts.js"
+  },
   "license": "MIT",
-  "private": true,
-  "author": "Harry Solovay <harrysolovay@gmail.com> (harrysolovay.com)",
-  "keywords": [
-    "rescript",
-    "rescripts",
-    "cra",
-    "create-react-app",
-    "create",
-    "react",
-    "app",
-    "scripts",
-    "cli",
-    "customization",
-    "custom",
-    "configuration",
-    "config"
-  ],
-  "workspaces": [
-    "packages/cli",
-    "packages/utilities",
-    "packages/rescripts/*",
-    "packages/examples/*"
-  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/rescripts/rescripts/tree/master/packages/cli",
+  "peerDependencies": {
+    "react-scripts": "2 - 5"
+  },
+  "dependencies": {
+    "@rescripts/utilities": "^0.0.8",
+    "ramda": "^0.26.0",
+    "react-dev-utils": "^12.0.0"
+  },
   "devDependencies": {
-    "doctoc": "^1.4.0",
-    "eslint": "^5.9.0",
-    "eslint-plugin-ramda": "^2.5.1",
-    "husky": "^1.2.0",
     "lerna": "^3.4.3",
-    "lint-staged": "^8.1.0",
     "prettier": "^1.15.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run doctoc && lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "scripts": {
-    "lint": "eslint --ignore-path .gitignore packages/**/*.js",
-    "doctoc": "doctoc README.md --maxlevel 2 --notitle",
-    "example": "cd packages/examples/editing-webpack-plugins && npm run start",
-    "clean": "rm -rf node_modules"
   }
 }
